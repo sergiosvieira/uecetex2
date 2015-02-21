@@ -29,9 +29,9 @@
 
 % Opcoes disponiveis
 
-%\trabalhoacademico{tccgraduacao}
+\trabalhoacademico{tccgraduacao}
 %\trabalhoacademico{tccespecializacao}
-\trabalhoacademico{dissertacao}
+%\trabalhoacademico{dissertacao}
 %\trabalhoacademico{tese}
 
 % Define se o trabalho eh uma qualificacao
@@ -54,13 +54,13 @@
 
 \ies{Universidade Estadual do Ceará}
 \iessigla{UECE}
-\centro{Centro de Ciências e Tecnologia}
+\centro{Centro de Ciências da Saúde}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%        Informação para TCC de Graduacao         %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\graduacaoem{Ciência da Computação}
+\graduacaoem{Enfermagem}
 \habilitacao{bacharel} % Pode colocar tambem 'licenciada'
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -91,9 +91,9 @@
 %%  Informação relacionadas ao trabalho     %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\autor{Nome Sobrenome}
-\titulo{Título do Trabalho}
-\data{2014}
+\autor{Alexandra da Silva Lima}
+\titulo{O Papel do Enfermeiro nas Redes Sociais de Apoio de Usuários da Atenção Básica - Uma Revisão Integrativa}
+\data{2015}
 \local{Fortaleza -- Ceará}
 
 % Exemplo: \dataaprovacao{01 de Janeiro de 2012}
@@ -103,10 +103,10 @@
 %%     Informação sobre o Orientador       %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\orientador{Nome do seu Orientador}
+\orientador{Maria Rocineide Ferreira da Silva}
 \orientadories{Universidade Estadual do Ceará – UECE}
-\orientadorcentro{Centro de Ciências e Tecnologia - CCT}
-\orientadorfeminino{nao} % Coloque 'sim' se for do sexo feminino
+\orientadorcentro{Centro de Ciências da Saúde - CCS}
+\orientadorfeminino{sim} % Coloque 'sim' se for do sexo feminino
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%      Informação sobre o Co-orientador   %%
@@ -150,44 +150,39 @@
 	% Elementos pré-textuais
 	\imprimircapa
 	\imprimirfolhaderosto{}
-	\imprimirfichacatalografica{elementos-pre-textuais/ficha-catalografica}
-	\imprimirerrata{elementos-pre-textuais/errata}
-	\imprimirfolhadeaprovacao
-	\imprimirdedicatoria{elementos-pre-textuais/dedicatoria}
-	\imprimiragradecimentos{elementos-pre-textuais/agradecimentos}
-	\imprimirepigrafe{elementos-pre-textuais/epigrafe}
-	\imprimirresumo{elementos-pre-textuais/resumo}
-	\imprimirabstract{elementos-pre-textuais/abstract}
-	\imprimirlistadeilustracoes
-	\imprimirlistadetabelas
-	\imprimirlistadequadros
-	\imprimirlistadealgoritmos
-	\imprimirlistadecodigosfonte
+	%\imprimirfichacatalografica{elementos-pre-textuais/ficha-catalografica}
+	%\imprimirerrata{elementos-pre-textuais/errata}
+	%\imprimirfolhadeaprovacao
+	%\imprimirdedicatoria{elementos-pre-textuais/dedicatoria}
+	%\imprimiragradecimentos{elementos-pre-textuais/agradecimentos}
+	%\imprimirepigrafe{elementos-pre-textuais/epigrafe}
+	%\imprimirresumo{elementos-pre-textuais/resumo}
+	%\imprimirabstract{elementos-pre-textuais/abstract}
+	%\imprimirlistadeilustracoes
+	%\imprimirlistadetabelas
+	%\imprimirlistadequadros
+	%\imprimirlistadealgoritmos
+	%\imprimirlistadecodigosfonte
 	\imprimirlistadeabreviaturasesiglas	
-	\imprimirlistadesimbolos{elementos-pre-textuais/lista-de-simbolos}   
+	%\imprimirlistadesimbolos{elementos-pre-textuais/lista-de-simbolos}   
 	\imprimirsumario
 	
 	%Elementos textuais
 	\textual
 	\input{elementos-textuais/introducao}
-	\input{elementos-textuais/fundamentacao-teorica}
-	\input{elementos-textuais/trabalhos-relacionados}
-	\input{elementos-textuais/metodologia}
-	\input{elementos-textuais/resultados}
-	\input{elementos-textuais/conclusao}
+	\input{elementos-textuais/objetivos}
+	\input{elementos-textuais/revisao-literatura}
 	
 	%Elementos pós-textuais	
 	\bibliography{elementos-pos-textuais/referencias}
 	\imprimirglossario	
 	\imprimirapendices
 		% Adicione aqui os apendices do seu trabalho
-		\input{elementos-pos-textuais/apendices/historico-de-mudancas}
-		\input{elementos-pos-textuais/apendices/lorem-ipsum}
-		\input{elementos-pos-textuais/apendices/termo-de-fiel-depositario}	
+		\input{elementos-pos-textuais/apendices/instrumento-coleta}
 	\imprimiranexos
 		% Adicione aqui os anexos do seu trabalho
-		\input{elementos-pos-textuais/anexos/exemplo-de-anexo}		
-		\input{elementos-pos-textuais/anexos/dinamica-das-classes-sociais}
+		\input{elementos-pos-textuais/anexos/cronograma}
+		\input{elementos-pos-textuais/anexos/orcamento}
 	\imprimirindice
 
 \end{document}
