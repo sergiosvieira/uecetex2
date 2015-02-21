@@ -28,6 +28,7 @@ documento.pdf
 *.ind
 *.idx
 *.gls
+*.glsdefs
 *.glo
 *.glg
 *.lol
