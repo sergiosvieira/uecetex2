@@ -1,19 +1,17 @@
 \chapter{Resultados e Discussão}
 \label{chap:resultados}
 
-Analisar redes sociais permite vislumbrar as interações entre qualquer classe de indivíduos, partindo tanto de dados qualitativos quanto quantitativos. Segundo [],  o uso de  análise de redes sociais possibilita coletar informações relevantes sobre a estrutura de um grupo, sendo possível, identificar as posições ocupadas pelos indivíduos, bem como identificar o cerne das relações criadas ao redor de cada um.
+Analisar redes sociais permite vislumbrar as interações entre qualquer classe de indivíduos, partindo tanto de dados qualitativos quanto quantitativos. Segundo \cite{stanley1994social},  o uso de  análise de redes sociais possibilita coletar informações relevantes sobre a estrutura de um grupo, sendo possível, identificar as posições ocupadas pelos indivíduos, bem como identificar o cerne das relações criadas ao redor de cada um.
 
-Como explicado anteriormente, os dados foram coletados no município de Icapuí-Ce, na Unidade Básica de Saúde da localidade de Barreira assim como em outros locais, considerando as pessoas citados nas entrevistas (Secretaria de Saúde do município, o Centro de Atenção Psicossocial e o Hospital Municipal Maria Idalina Rodrigues de Medeiros).
+Como explicado anteriormente, os dados foram coletados no município de Icapuí-Ce, na \acrlong{UBS} da localidade de Barreira assim como em outros locais (Secretaria de Saúde do Município, o Centro de Atenção Psicossocial e o Hospital Municipal Maria Idalina Rodrigues de Medeiros), considerando as pessoas citadas nas entrevistas.
 
-Logicamente, uma infinidade de análises pode ser realizada considerando os dados coletados, o que pode ser inviável de abordar em um único artigo. Neste trabalho, um número limitado de atores e de conexões foi utilizado, e a partir dele, foram feitas considerações sobre o comportamento da rede.
+Logicamente, uma infinidade de análises pode ser realizada considerando os dados coletados, o que pode ser inviável de abordar em um único trabalho. Portanto, um número limitado de atores, conexões e métricas foi utilizado, e a partir deles, foram feitas considerações sobre o comportamento geral da rede social de uma única enfermeira. 
 
-A rede estudada, neste trabalho, não contempla todas as relações possíveis e existentes de cada pessoa entrevistada, mas somente um recorte viável de analisar.
+A rede pesquisada não contempla todas as relações possíveis e existentes de cada pessoa entrevistada, mas somente um recorte viável de analisar. As notações consideradas no desenho do grafo estão reunidas nas tabelas \ref{graph-job} e \ref{graph-place}.
 
-As notações consideradas no desenho do grafo estão reunidas nas tabelas [] e [].
-
-\begin{table}[]
+\begin{table}[htbp]
 \centering
-\caption{Significado dos rótulos dos atores da rede segundo profissão}
+\caption{Significado dos rótulos dos atores da rede segundo suas profissões.}
 \label{graph-job}
 \begin{tabular}{|l|l|}
 \hline
@@ -28,9 +26,9 @@ A        & Outro                   \\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}[]
+\begin{table}[htbp]
 \centering
-\caption{Significado dos rótulos dos atores da rede segundo área de atuação}
+\caption{Significado dos rótulos dos atores da rede segundo as áreas de atuação.}
 \label{graph-place}
 \begin{tabular}{|l|l|}
 \hline
@@ -42,26 +40,28 @@ Notação & Área de Atuação                       \\ \hline
 \end{tabular}
 \end{table}
 
-A identificação de um ator segue a seguinte notação [Profissão]n [Atuação], por exemplo, E1 [R] (Enfermeiro(a) 01 Residente); E2 (Enfermeiro 02 Atenção básica) etc.
+Além disso, a identificação dos atores segue a seguinte notação [Profissão][Identificador Único] [Área de Atuação], por exemplo, $E1 [R]$ (Enfermeiro(a) 01 Residente); $E2$ (Enfermeiro 02 Atenção básica) etc.
 
-Como pode ser observado na Figura 1, o grafo permite identificar vinte e seis (26) atores que fazem parte da rede, onde seis (6) pessoas foram entrevistadas, vinte (20) outras foram citadas, trinta (30) relações e nenhum laço.
+Como pode ser observado na Figura \ref{fig:grafos}, o grafo permite identificar vinte e seis (26) atores que fazem parte da rede, onde seis (6) pessoas foram entrevistadas, vinte (20) outras foram citadas, trinta (30) relações e nenhum laço.
 
-\begin{center}
-%\noindent\makebox[\textwidth]{\includegraphics[width=0.8]{figuras/grafo-principal.pdf}}
-\includegraphics[width=15cm,keepaspectratio]{figuras/grafo-grupos.pdf}
-\end{center}
+\begin{figure}[htbp]
+\centering
+ \includegraphics[width=.85\textwidth]{figuras/grafo-grupos.pdf}
+ \caption{Representação da rede social utilizada neste trabalho.}
+\label{fig:grafos}
+\end{figure}
 
-A primeira medida analisada da rede foi a densidade que é a relação entro o número de laços existentes e o número de laços possíveis. Tal métrica exibe a taxa de conectividade. Neste trabalho o valor de densidade encontrado foi de 4,61\% (baixa densidade) o que pode denotar a existência de alguma dificuldade na resolução de problemas em grupo.
+A primeira medida analisada da rede foi a densidade que é a relação entre o número de laços existentes e o número de laços possíveis. Tal métrica exibe a taxa de conectividade da rede. Neste trabalho, o valor de densidade encontrado foi de 4,61\% (baixa densidade) o que pode denotar a existência de alguma dificuldade na resolução de problemas em grupo.
 
-Geralmente, nas circunstâncias onde existe baixa densidade, os atores existentes não conseguem se identificar como participantes de um grupo maior e podem demonstrar  dificuldades de relacionamento. Tal situação pode acarretar pouca cooperatividade entres os atores envolvidos, podendo até mesmo existir apatia na resolução de problemas, gerando conflitos. (Hanneman, 2002b).
+Geralmente, nas circunstâncias onde existe baixa densidade, os atores não conseguem se identificar como participantes de um grupo maior e podem demonstrar certa dificuldade de relacionamento. Tal situação pode acarretar pouca cooperatividade entres os atores envolvidos, podendo até mesmo existir apatia na resolução de problemas, gerando conflitos. \cite{hanneman2001centralidad}.
 
 Alexandra pode completar com a realidade que foi exibida com as entrevistas se contrapondo a ideia do parágrafo anterior.
 
-Outra medida importante é o grau de centralidade, ele indica o número de ligações que entram e que saem de um ator. Através dele são identificados os atores principais da rede. A tabela [] exibe o grau de centralidade associado a cada ator.
+Outra medida importante é o grau de centralidade, ele indica o número de ligações que entram e que saem de um ator. Através dele são identificados os atores principais da rede. A tabela \ref{table-centralize-degree} exibe o grau de centralidade associado a cada ator.
 
-\begin{table}[]
+\begin{table}[htbp]
 \centering
-\caption{Grau de centralização de cada ator}
+\caption{Grau de centralização de cada ator.}
 \label{table-centralize-degree}
 \begin{tabular}{|l|l|l|l|l|}
 \hline
@@ -96,7 +96,7 @@ E7 {[}S{]}    & 0,000         & 1,000           & 0,000                     & 0,
 \end{tabular}
 \end{table}
 
-Através da tabela [] identifica-se que os principais atores da rede são E0, E1[H], A7 [H] E3[S] pois cada um possui Grau de Entrada Normalizada de 0,8 (mais requisitados).
+Através da tabela \ref{table-centralize-degree} identifica-se que os principais atores da rede são $E0$, $E1[H]$, $A7 [H]$ e  $E3[S]$ pois cada um possui Grau de Entrada Normalizada de 0,8 (mais requisitados).
 
 Alexandra pode falar sobre a importância dos principais atores da rede na resolução de problemas em icapuí.
 
@@ -104,11 +104,11 @@ O Grau de Proximidade denota a capacidade de um ator se ligar a todos os outros 
 
 Já o Grau de Intermediação mostra a capacidade que um ator possui de intermediar a comunicação entre pares de atores da rede. Sua importância se dá, pois, é através de atores que possuem alto grau de intermediação que as informações são propagadas para diversos outros atores. 
 
-A tabela [closenes] sumariza o Grau de Proximidade e Intermediação dos atores.
+A tabela \ref{closeness-betweeness-degree} lista o Grau de Proximidade e Intermediação dos atores.
 
-\begin{table}[]
+\begin{table}[htbp]
 \centering
-\caption{Grau de Proximidade e Intermediação dos Nós}
+\caption{Grau de Proximidade e Intermediação dos Nós.}
 \label{closeness-betweeness-degree}
 \begin{tabular}{|l|l|l|}
 \hline
@@ -142,6 +142,6 @@ E7 {[}S{]}    & 30.120              & 0.000                 \\ \hline
 \end{tabular}
 \end{table}
 
-A partir da tabela [closenes] observa-se que os atores E0, A1 [S], E1 [H], N0 [R], A4 [C] e E2 [H] possuem os maiores Graus de Proximidade e os atores E0, A1 [S] e N0 [R] possuem maiores Graus de Intermediação.
+A partir da tabela \ref{closeness-betweeness-degree} observa-se que os atores $E0$, $A1 [S]$, $E1 [H]$, $N0 [R]$, $A4 [C]$ e $E2 [H]$ possuem os maiores Graus de Proximidade e os atores $E0$, $A1 [S]$ e $N0 [R]$ possuem maiores Graus de Intermediação.
 
 Alexandra deve falar como os graus de intermediação e proximidade indicam bem a importância de A1 [S] da Central de Marcação de Consultas e exames.
