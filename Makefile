@@ -22,7 +22,7 @@
 ########################################################################
 
 filename=documento
-
+presentation=presentation
 all: compile
 	
 compile:
@@ -40,9 +40,12 @@ compile:
 	pdflatex $(filename).tex
 	@echo "Processo finalizado com sucesso!"
 
+presentation:
+	pdflatex $(presentation).tex
 	
 clean:
 	@echo -n "Limpando arquivos auxiliares...\n"
 	@rm -f *.out *.aux *.alg *.acr *.dvi *.gls *.log *.bbl *.blg *.ntn *.not *.lof *.lot *.toc *.loa *.lsg *.nlo *.nls *.ilg *.ind *.ist *.glg *.glo *.xdy *.acn *.idx *.loq *~ *.glsdefs
 	@rm -f $(filename).pdf
+	@rm -f $(presentation).pdf
 	@echo "Processo finalizado com sucesso!"
