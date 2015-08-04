@@ -1129,8 +1129,18 @@
 % Largura da lista de abreviaturas
 \setlength{\glsdescwidth}{\linewidth}
 
+\newglossarystyle{mylong}{%
+  \setglossarystyle{long}%
+  \renewcommand{\glossentry}[2]{%
+    \glsentryitem{##1}\glstarget{##1}{\glossentryname{##1}} &
+    \glossentrydesc{##1}\space ##2\tabularnewline
+  }%
+}
+
+
+\setglossarystyle{mylong}
 \newcommand{\imprimirlistadeabreviaturasesiglas}{ %
-	\printglossary[type=\acronymtype,style=long,nonumberlist,title={Lista de Abreviaturas e Siglas\vspace{-0.3cm}}] %
+	\printglossary[type=\acronymtype,nonumberlist,title={Lista de Abreviaturas e Siglas\vspace{-0.3cm}}] %
 	\pagebreak %
 }
 
@@ -1164,7 +1174,7 @@
 	\renewcommand*{\glsgroupskip}{}%
 	% Depois da palavra, colocar o ":" e no fim o ponto final "."
 	\renewcommand*{\glossaryentryfield}[5]{%
-		\item[\glstarget{##1}{##2}:] ##3.%
+		\item[\glstarget{##1}{##2}:] ##3%
 	}%
 }
 
