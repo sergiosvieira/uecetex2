@@ -1,3 +1,6 @@
+% !TeX encoding = UTF-8
+% !TeX root = ../documento.tex
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Customizações do abnTeX2 (http://abnTeX2.googlecode.com)           %%
 %% para a Universidade Estadual do Ceara - UECE                       %%
@@ -46,6 +49,7 @@
 % Define as margens do documento
 \setlrmarginsandblock{3cm}{2cm}{*} % externa / interna
 \setulmarginsandblock{3cm}{2cm}{*} % superior / inferior
+\checkandfixthelayout
 
 % Espacamentos nos titulos:
 % chapter
@@ -97,8 +101,19 @@
 % Margen da legenda da figura e da tabela
 \captionsetup{
 	justification=centering,% Centraliza o caption
-	skip=0pt                %Retira o espaco entre a figura/tabela e o caption
+	skip=0pt,                %Retira o espaco entre a figura/tabela e o caption
+	labelfont=bf, % A palavra 'Figure 1' agora eh negrito
+	font=bf	% O texto depois de 'Figure 1' agora eh negrito
 }
+% Os items da lista de figura agora sao negritos
+\renewcommand{\cftfigurefont}{\bfseries}
+% Os items da lista de tabela e quadro agora sao negritos
+\renewcommand{\cfttablefont}{\bfseries}
+
+
+% Remove o ponto final de cada entrada da 
+%lista de abreviaturas e siglas
+\renewcommand{\glspostdescription}{}
 
 % Espaçamento entre o texto e a legenda
 %\setlength{\belowcaptionskip}{\onelineskip}
@@ -106,11 +121,48 @@
 % Retira espaço extra obsoleto entre as frases.
 %\frenchspacing
 
+\newcommand{\listofquadrosname}{Lista de Quadros}
+\newcommand{\glossarioname}{GLOSS\'ARIO}
+\newcommand{\teoremaname}{Teorema}
+\newcommand{\proposicaoname}{Proposição}
+\newcommand{\exemploname}{Exemplo}
+\newcommand{\definicaoname}{Definição}
+\newcommand{\questaoname}{Questão}
+
 \addto\captionsbrazil{
 	\renewcommand{\bibname}{REFER\^ENCIAS}
 	\renewcommand{\indexname}{\'INDICE}
 	\renewcommand{\contentsname}{Sum\'ario \vspace{5pt}}
 	\renewcommand{\listadesimbolosname}{Lista de Símbolos}
+	\renewcommand{\lstlistingname}{Código-fonte}% Listing -> Algorithm
+	\renewcommand{\lstlistlistingname}{Lista de Códigos-Fontes}%
+	\renewcommand{\listalgorithmcfname}{Lista de Algoritmos}%
+	\renewcommand{\algorithmcfname}{Algoritmo}%
+	\renewcommand{\cftquadroname}{Quadro\space}%
+	\renewcommand{\apendicesname}{AP\^ENDICES}%
+	\renewcommand{\anexosname}{ANEXOS}%
+}
+
+\addto\captionsenglish{% ingles
+	\renewcommand{\lstlistingname}{Code}% Listing -> Algorithm
+	\renewcommand{\lstlistlistingname}{List of Source Codes}%
+	\renewcommand{\listalgorithmcfname}{Lists of Algorithms}%
+	\renewcommand{\algorithmcfname}{Algorithm}%
+	\renewcommand{\cftquadroname}{Chart\space}%
+	\renewcommand{\listofquadrosname}{List of Charts}%
+	\renewcommand{\apendicesname}{APPENDICES}%
+	\renewcommand{\anexosname}{ANNEXES}%
+	\renewcommand{\glossarioname}{GLOSSARY}%
+	\def\tableautorefname{Table}
+	\def\figureautorefname{Figure}
+	\def\sectionautorefname{Section}
+	\def\chapterautorefname{Chapter}
+	\def\subsectionautorefname{Subsection}
+	\renewcommand{\teoremaname}{Theorem}
+	\renewcommand{\proposicaoname}{Proposition}
+	\renewcommand{\exemploname}{Example}
+	\renewcommand{\definicaoname}{Definition}
+	\renewcommand{\questaoname}{Question}
 }
 
 % Por algum motivo, o algorithm2e estava pegando algumas palavras do espanhol.
@@ -119,8 +171,31 @@
 \SetKwFor{Para}{para}{fa\c{c}a}{fim para}
 \SetKwBlock{Inicio}{inicio}{fim}
 
-% Altera o titulo para esse
-\renewcommand{\listalgorithmcfname}{Lista de Algoritmos}%
+% Na versao mais nova do algorithm2e (versao 5.1) aparentemente foram adicionados
+% algumas palavras com acentuacao e por isso estava causando erro no template. 
+% Os comandos a seguir foram copiados da versao mais nova para tentar resolver o problema.
+\SetKwInput{Entrada}{Entrada}%
+\SetKwInput{Saida}{Sa\'{i}da}%
+\SetKwInput{Dados}{Dados}%
+\SetKwInput{Resultado}{Resultado}%
+\SetKw{Ate}{at\'{e}}
+\SetKw{KwRetorna}{retorna}%
+\SetKw{Retorna}{retorna}%
+\SetKwBlock{Inicio}{in\'{i}cio}{fim}%
+\SetKwRepeat{Repita}{repita}{at\'{e}}%
+%
+\SetKwIF{Se}{SenaoSe}{Senao}{se}{ent\~{a}o}{sen\~{a}o se}{sen\~{a}o}{fim se}%
+\SetKwSwitch{Selec}{Caso}{Outro}{selecione}{fa\c{c}a}{caso}{sen\~{a}o}{fim caso}{fim selec}%
+\SetKwFor{Para}{para}{fa\c{c}a}{fim para}%
+\SetKwFor{ParaPar}{para}{fa\c{c}a em paralelo}{fim para}
+\SetKwFor{ParaCada}{para cada}{fa\c{c}a}{fim para cada}%
+\SetKwFor{ParaTodo}{para todo}{fa\c{c}a}{fim para todo}%
+\SetKwFor{Enqto}{enquanto}{fa\c{c}a}{fim enqto}%
+
+% Espaco entre as linhas do algoritmo
+\newcommand{\SetSpacedAlgorithm}{
+	\linespread{1.35}\selectfont
+}
 
 % Espaco entre o caption e o algoritmo
 %\SetAlCapSkip{\onelineskip}
@@ -140,7 +215,7 @@
 \newcommand{\Fonte}[2][\fontename]{ %
 %	\vspace{-3pt}
 	\vspace{8pt}
- 		\fonte[#1]{#2}
+ 		\fonte[\normalfont{#1}]{\normalfont{#2}}
  	\vspace{-5pt}
 }
 
@@ -197,7 +272,7 @@
 }
 
 \newcommand{\artigocoorientador}{ %
-	\ifthenelse{\boolean{uecetex2@orientadorfeminino}}{ %
+	\ifthenelse{\boolean{uecetex2@coorientadorfeminino}}{ %
 		Co-Orientadora\ignorespaces%
 	}{ %
 		Co-Orientador\ignorespaces%
@@ -213,7 +288,7 @@
 }
 
 \newcommand{\artigocoorientadorcomparenteses}{ %
-	\ifthenelse{\boolean{uecetex2@orientadorfeminino}}{ %
+	\ifthenelse{\boolean{uecetex2@coorientadorfeminino}}{ %
 		(Co-Orientadora)\ignorespaces%
 	}{ %
 		(Co-Orientador)\ignorespaces%
@@ -556,7 +631,7 @@
 	\end{capa}	
 }
 
-\newcommand{\imprimircapatcc}[1]{%
+\newcommand{\imprimircapatcc}[2]{%
 	\begin{capa}%
 		% Todos os elementos da capa devem esta centralizado
 		\center
@@ -567,7 +642,7 @@
         \vspace{0.1cm}
 		\MakeUppercase{\imprimiries} \\
 		\MakeUppercase{\imprimircentro} \\
-		\MakeUppercase{Curso de #1 em \imprimirgraduacaoem} \\
+		\MakeUppercase{Curso de #1 em #2} \\
 
 		\vspace{\onelineskip}
 
@@ -593,9 +668,9 @@
 			\imprimircapatese	 %
 		}{
 			\ifthenelse{\boolean{uecetex2@ehtccgraduacao}}{ %
-				\imprimircapatcc{Graduação}	 %
+				\imprimircapatcc{Graduação}{\imprimirgraduacaoem}	 %
 			}{
-				\imprimircapatcc{Especialização} %
+				\imprimircapatcc{Especialização}{\imprimirespecializacaoem} %
 			}
 		}
 	}
@@ -886,8 +961,55 @@
 	}
 }
 
+
+%============================================================
+%   Definição de comandos e parâmetros específicos e configuração de ambientes de teorema
+%=======================================================
+% Retira a linha entre a citação inicial da fonte
+%\setlength{\epigraphrule}{0.0pt}  
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%             Dedicatória             %%
+%%             Teoremas                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\Lg}{\emph{\sc L}}
+\newcommand{\contem}{\supset}
+\newcommand{\estacontido}{\subset}
+\newtheorem{afirmacao}{{\sc Afirma\c{c}\~{a}o}}[section]
+\newtheorem{argumento}{\sc Argumento~}[section]
+\newtheorem{teo}{\teoremaname}[section]
+\newtheorem{lema}{Lema}[section]
+\newtheorem{cor}{Corolário}[section]
+\newtheorem{prop}[teo]{\proposicaoname}
+\newtheorem{conjec}{Conjectura}[section]
+\newtheorem{premissa}{Premissa}[chapter]
+\newtheorem{procedimento}{Procedimentos}[section]
+\newtheorem{heuristica}{Heurística}[section]
+\newtheorem{axioma}{Axioma}[section]
+\newtheorem{exem}{\exemploname}
+\newtheorem{xdefinicao}{\definicaoname}[section]
+\newtheorem{cdefinicao}{\definicaoname}[chapter]
+\newtheorem{propriedade}{Propriedade}[chapter]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%             Questoes                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Contar as questoes
+\newcounter{quest}
+
+\newenvironment{questao}{ %
+	\begin{list}{\textbf{\questaoname~\arabic{quest}.}}{\usecounter{quest} %
+		\setlength{\labelwidth}{-2mm} \setlength{\parsep}{0mm} %
+		\setlength{\topsep}{0mm} \setlength{\leftmargin}{0mm}} %
+	\renewcommand{\labelenumi}{(\alph{enumi})}	%
+}{ %
+	\end{list} %
+} %
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%             Dedicatoria             %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\imprimirdedicatoria}[1]{
@@ -909,10 +1031,12 @@
 %%                Errata               %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\imprimirerrata}[1]{
-	\begin{errata} 
-	\input{#1}
-	\end{errata}
+\newcommand{\imprimirerrata}[1]{%
+	\ifthenelse{\boolean{uecetex2@ehqualificacao}}{}{%
+		\begin{errata} %
+		\input{#1}%
+		\end{errata}%
+	}%
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -955,8 +1079,10 @@
 %%          Ficha Catalografica        %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\imprimirfichacatalografica}[1]{
-	\includepdf[pages=1]{#1} %
+\newcommand{\imprimirfichacatalografica}[1]{%
+	\ifthenelse{\boolean{uecetex2@ehqualificacao}}{}{%
+		\includepdf[pages=1]{#1} %
+	}%
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -977,7 +1103,7 @@
 }
 
 \newcommand{\imprimirresumo}[1]{ %
-	\begin{resumo} %
+	\begin{resumo}[Resumo] %
 		\input{#1} %
 	\end{resumo} %
 }
@@ -998,18 +1124,19 @@
 
 % Novo list of (listings) para QUADROS
 
-\newcommand{\quadroname}{Quadro}
-\newcommand{\listofquadrosname}{Lista de Quadros}
+%\newcommand{\quadroname}{Quadro}
+%\newcommand{\listofquadrosname}{Lista de Quadros}
 
-\newfloat[chapter]{quadro}{loq}{\quadroname}
+\newfloat[chapter]{quadro}{loq}{\cftquadroname}
 \newlistof{listofquadros}{loq}{\listofquadrosname}
 \newlistentry{quadro}{loq}{0}
 
 % configurações para atender às regras da ABNT
 \counterwithout{quadro}{chapter}
-\renewcommand{\cftquadroname}{\quadroname\space} 
+%\renewcommand{\cftquadroname}{\quadroname\space} 
 \renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
-
+% agora a lista de quadro eh negrito
+\renewcommand{\cftquadrofont}{\bfseries}
 
 \newcommand{\imprimirlistadequadros}{ %
 	%\pdfbookmark[0]{\listofquadrosname}{loq} %
@@ -1023,8 +1150,6 @@
 
 % Comandos para formatar a exibicao de codigos-fonte
 
-\renewcommand{\lstlistingname}{Código-fonte}% Listing -> Algorithm
-\renewcommand{\lstlistlistingname}{Lista de Códigos-Fonte}%
 
 %\AtBeginDocument{ %
 %	\counterwithout{lstlisting}{chapter}
@@ -1077,7 +1202,7 @@
 \renewcommand\cftlstlistingpresnum{\lstlistingname~}
 \settowidth\mylen{\cftlstlistingpresnum\cftlstlistingaftersnum}
 \addtolength\cftlstlistingnumwidth{\mylen} %
-\renewcommand\cftlstlistingaftersnum{\hfill\textendash\hfill}
+\renewcommand\cftlstlistingaftersnum{~\hfill\textendash\hfill}
 
 
 \newcommand{\imprimirlistadecodigosfonte}{ %
@@ -1087,6 +1212,8 @@
 	\end{KeepFromToc} %
 	\pagebreak %
 }
+% agora a lista de quadro eh negrito
+\renewcommand{\cftlstlistingfont}{\bfseries}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%         Lista de Ilustrações        %%
@@ -1104,12 +1231,32 @@
 %%         Lista de Algoritmos         %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\newlength\myAlgoLen
+
+\begingroup
+\makeatletter
+\let\newcounter\@gobble\let\setcounter\@gobbletwo
+\globaldefs\@ne \let\c@loadepth\@ne
+\newlistof{algorithms}{loa}{\listalgorithmname}
+\newlistentry{algocf}{loa}{0}
+\makeatother
+\endgroup
+
+\renewcommand\cftalgocfpresnum{\algorithmcfname~}
+\settowidth\myAlgoLen{\cftalgocfpresnum\cftalgocfaftersnum}
+\addtolength\cftalgocfnumwidth{\myAlgoLen} %
+\renewcommand\cftalgocfaftersnum{\hfill\textendash\hfill}
+
+
 % A lista de Algoritmos não deve aparecer no sumário
 
 \newcommand{\imprimirlistadealgoritmos}{
 	\listofalgorithms
 	\pagebreak %
 }
+
+% agora a lista de quadro eh negrito
+\renewcommand{\cftalgocffont}{\bfseries}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%            Lista de Tabelas         %%
@@ -1170,8 +1317,8 @@
 
 \newcommand{\imprimirglossario}{ %
 	\glossarystyle{glossario-uece} %	
-	\printglossary[title=GLOSSÁRIO,toctitle=GLOSSÁRIO] %
-	\addcontentsline{toc}{chapter}{GLOSSÁRIO}
+	\printglossary[title=\glossarioname,toctitle=\glossarioname] %
+	\addcontentsline{toc}{chapter}{\glossarioname}
 }
 
 
@@ -1191,14 +1338,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Define o titulo no sumario do Apendice para nao negrito
-\newcommand{\apendice}[1]{\chapter{\normalfont{#1}}}
+\newcommand{\apendice}[1]{\chapter{\normalfont\uppercase{#1}}}
 
 % O nome APÊNDICES deve vir em página distinta, redigido em letras maiúsculas, centralizado, negritado, tamanho da fonte 12.
 \newcommand{\imprimirpaginaapendices}{ %
 	\newpage %
-	\addcontentsline{toc}{chapter}{AP\^ENDICES} %
+	\addcontentsline{toc}{chapter}{\apendicesname} %
 	\begin{vplace}[0.7] %
-		\centering\textbf{AP\^ENDICES} %
+		\centering\textbf{\apendicesname} %
 	\end{vplace} %
 	\clearpage
 }
@@ -1291,14 +1438,14 @@
 
 
 % Define o titulo no sumario do Anexo para nao negrito
-\newcommand{\anexo}[1]{\chapter{\normalfont{#1}}}
+\newcommand{\anexo}[1]{\chapter{\normalfont\uppercase{#1}}}
 
 % O nome ANEXOS deve vir em página distinta, redigido em letras maiúsculas, centralizado, negritado, tamanho da fonte 12.
 \newcommand{\imprimirpaginaanexo}{ %
 	\newpage %
-	\addcontentsline{toc}{chapter}{ANEXOS} %
+	\addcontentsline{toc}{chapter}{\anexosname} %
 	\begin{vplace}[0.7] %
-		\centering\textbf{ANEXOS} %
+		\centering\textbf{\anexosname} %
 	\end{vplace} %
 	\clearpage
 }
@@ -1317,6 +1464,10 @@
 
 \newcommand{\imprimirindice}{ %
 	\printindex
+}
+
+\newcommand{\citeautoronline}[1]{ %
+	\unskip\citeauthoronline{#1} (\citeyear{#1})\xspace %
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1368,4 +1519,21 @@
 	\oldcontentsline{#1}{#2}%
 }%
 }
+\makeatother
+
+\makeatletter
+\renewcommand{\fonte}[2][\fontename]{%
+	\M@gettitle{#2}%
+	\memlegendinfo{#2}%
+	\par
+	\begingroup
+	\@parboxrestore
+	\if@minipage
+	\@setminipage
+	\fi
+	\ABNTEXfontereduzida
+	\configureseparator
+	\captiondelim{\ABNTEXcaptionfontedelim}
+	\@makecaption{\ABNTEXfontereduzida #1}{\ignorespaces\ABNTEXfontereduzida #2}\par
+	\endgroup}
 \makeatother
