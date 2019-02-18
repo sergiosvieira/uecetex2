@@ -75,8 +75,16 @@
 \usepackage{amsmath}                                % Usar equacoes matematicas
 %\usepackage{tabu}				    % Tabelas mais flexíveis
 
+
+% \DeclareMultiCiteCommand{\cbx@cites}{\cite}{\multicitedelim}
+% \DeclareMultiCiteCommand{\cites}[\cbx@cite@wrapper\cbx@cites]{\cbx@cite}{}
+\def\cites#1{\citeauthor{#1}, \citeyear{#1}, \citepages{#1}}
+
 % Organiza e gera a lista de abreviaturas, simbolos e glossario
 \makeglossaries
 
 % Gera o Indice do documento
 \makeindex
+
+
+
